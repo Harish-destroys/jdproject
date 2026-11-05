@@ -31,21 +31,20 @@
     <div class="demo-role-banner">
       <div class="container-fluid px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
         <div class="d-flex align-items-center gap-2">
-          <span class="badge bg-emerald text-navy fw-bold" style="font-size: 0.7rem;"><i class="bi bi-mortarboard-fill"></i> COLLEGE PROJECT EVALUATOR MODE</span>
           <span class="text-white-50 d-none d-md-inline" style="font-size: 0.78rem;">Instant 1-Click Role Switcher:</span>
         </div>
         <div class="d-flex flex-wrap align-items-center gap-1">
           <span class="demo-chip active" data-role="Donor">
-            <i class="bi bi-building"></i> 1. Restaurant Donor (Chef Marcus)
+            <i class="bi bi-building"></i> 1. Restaurant Donor
           </span>
           <span class="demo-chip" data-role="NGO">
-            <i class="bi bi-heart-pulse"></i> 2. NGO Coordinator (Dr. Sarah)
+            <i class="bi bi-heart-pulse"></i> 2. NGO Coordinator
           </span>
           <span class="demo-chip" data-role="Volunteer">
-            <i class="bi bi-bicycle"></i> 3. Volunteer Courier (Alex R.)
+            <i class="bi bi-bicycle"></i> 3. Volunteer Courier
           </span>
           <span class="demo-chip" data-role="Admin">
-            <i class="bi bi-shield-lock"></i> 4. System Admin (Harish S.)
+            <i class="bi bi-shield-lock"></i> 4. System Admin
           </span>
         </div>
       </div>
@@ -854,16 +853,16 @@
               <p class="text-muted small mb-3">Jump into any of the 4 role dashboards instantly without typing:</p>
               <div class="d-grid gap-2">
                 <button class="btn btn-outline-primary btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Donor\']')?.click();">
-                  <i class="bi bi-building me-2"></i> <strong>Chef Marcus</strong> (Restaurant / Hotel Donor)
+                  <i class="bi bi-building me-2"></i> <strong>Restaurant / Hotel Donor</strong>
                 </button>
                 <button class="btn btn-outline-success btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'NGO\']')?.click();">
-                  <i class="bi bi-heart-pulse me-2"></i> <strong>Dr. Sarah Jenkins</strong> (NGO / Shelter Coordinator)
+                  <i class="bi bi-heart-pulse me-2"></i> <strong>NGO / Shelter Coordinator</strong>
                 </button>
                 <button class="btn btn-outline-info btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Volunteer\']')?.click();">
-                  <i class="bi bi-bicycle me-2"></i> <strong>Alex Rivera</strong> (Volunteer Courier)
+                  <i class="bi bi-bicycle me-2"></i> <strong>Volunteer Courier</strong>
                 </button>
                 <button class="btn btn-outline-danger btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Admin\']')?.click();">
-                  <i class="bi bi-shield-lock me-2"></i> <strong>Harish Solaiyappan</strong> (Master System Admin)
+                  <i class="bi bi-shield-lock me-2"></i> <strong>Master System Admin</strong>
                 </button>
               </div>
             </div>
@@ -997,23 +996,18 @@
     <footer class="bg-navy text-white pt-5 pb-4 border-top border-white border-opacity-10" style="background-color: var(--color-navy);">
       <div class="container">
         <div class="row g-4 pb-4 border-bottom border-white border-opacity-10">
-          <div class="col-12 col-md-4">
+          <div class="col-12 col-md-5">
             <div class="d-flex align-items-center gap-2 mb-3">
               <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1.1rem;">
                 <i class="bi bi-recycle"></i>
               </div>
               <h5 class="fw-bold mb-0 text-white">Second<span class="text-emerald">Serve</span></h5>
             </div>
-            <p class="text-white-50 small mb-3">
+            <p class="text-white-50 small mb-0">
               Surplus Food Rescue Coordination System connecting restaurants, hotels, charities, and volunteer couriers to end hunger and eliminate organic landfill waste.
             </p>
-            <div class="d-flex gap-2">
-              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-twitter-x"></i></a>
-              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-linkedin"></i></a>
-              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-github"></i></a>
-            </div>
           </div>
-          <div class="col-6 col-md-2">
+          <div class="col-6 col-md-3">
             <h6 class="fw-bold text-white mb-3">Quick Navigation</h6>
             <ul class="list-unstyled small text-white-50 d-flex flex-column gap-2">
               <li><a href="#home" onclick="window.navigateTo('home')" class="text-white-50">Home</a></li>
@@ -1023,7 +1017,7 @@
               <li><a href="#tracker" onclick="window.navigateTo('tracker')" class="text-white-50">Live Tracker</a></li>
             </ul>
           </div>
-          <div class="col-6 col-md-3">
+          <div class="col-6 col-md-4">
             <h6 class="fw-bold text-white mb-3">Role Portals</h6>
             <ul class="list-unstyled small text-white-50 d-flex flex-column gap-2">
               <li><a href="#dashboard-donor" onclick="document.querySelector('[data-role=\'Donor\']')?.click();" class="text-white-50"><i class="bi bi-building me-1"></i> Donor Portal</a></li>
@@ -1031,17 +1025,6 @@
               <li><a href="#dashboard-volunteer" onclick="document.querySelector('[data-role=\'Volunteer\']')?.click();" class="text-white-50"><i class="bi bi-bicycle me-1"></i> Volunteer Portal</a></li>
               <li><a href="#dashboard-admin" onclick="document.querySelector('[data-role=\'Admin\']')?.click();" class="text-white-50"><i class="bi bi-shield-lock me-1"></i> Admin HQ</a></li>
             </ul>
-          </div>
-          <div class="col-12 col-md-3">
-            <h6 class="fw-bold text-white mb-3">College Project Demo</h6>
-            <div class="p-3 bg-white bg-opacity-5 rounded-3 border border-white border-opacity-10 small text-white-50">
-              <div class="text-emerald fw-bold mb-1"><i class="bi bi-code-slash"></i> Tech Stack:</div>
-              <div>Frontend: HTML5, CSS3, Vanilla JS, Bootstrap 5.3</div>
-              <div>Backend: Java Spring Boot 3 & MySQL</div>
-              <div class="mt-2 pt-2 border-top border-white border-opacity-10 text-white">
-                <i class="bi bi-check-circle-fill text-vibrant"></i> Pure CSS/JS architecture.
-              </div>
-            </div>
           </div>
         </div>
         <div class="pt-3 d-flex flex-wrap align-items-center justify-content-between small text-white-50">

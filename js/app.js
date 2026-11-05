@@ -100,7 +100,7 @@ class SecondServeApp {
 
         this.renderHeaderUserUI();
         this.playNotificationSound();
-        this.showToast('Profile Switched', `Logged in as ${user.name} (${user.role} - ${user.organization || 'Verified Account'})`);
+        this.showToast('Role Switched', `Logged in as ${user.role} - ${user.organization || 'Verified Account'}`);
 
         // Automatically navigate to their dashboard
         const dashboardView = `dashboard-${role.toLowerCase()}`;
@@ -192,7 +192,7 @@ class SecondServeApp {
         e.preventDefault();
         const user = AuthService.getCurrentUser();
         if (!user || user.role !== 'NGO') {
-          this.showToast('NGO Authorization', 'Please switch to an NGO profile (e.g. Dr. Sarah Jenkins) to request food.');
+          this.showToast('NGO Authorization', 'Please switch to an NGO profile to request food.');
           return;
         }
 
