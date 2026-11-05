@@ -1,0 +1,1685 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SecondServe – Surplus Food Rescue Coordination System</title>
+    <meta name="description" content="A modern, professional food rescue coordination platform connecting restaurants and hotels with NGOs and volunteers to eliminate food waste and feed communities in need." />
+    <meta property="og:title" content="SecondServe – Surplus Food Rescue Coordination System" />
+    <meta property="og:description" content="Good Food Deserves a Second Serve. Connect restaurants, NGOs, and volunteers to eliminate food waste." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Google Fonts: Plus Jakarta Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap 5.3.3 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons 1.11.3 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="/css/style.css">
+  </head>
+  <body>
+
+    <!-- ==========================================
+         TOP DEMO ROLE SWITCHER BAR (College Project Demo)
+         Allows evaluators to switch roles in 1 click
+         ========================================== -->
+    <div class="demo-role-banner">
+      <div class="container-fluid px-3 px-md-4 d-flex flex-wrap align-items-center justify-content-between gap-2">
+        <div class="d-flex align-items-center gap-2">
+          <span class="badge bg-emerald text-navy fw-bold" style="font-size: 0.7rem;"><i class="bi bi-mortarboard-fill"></i> COLLEGE PROJECT EVALUATOR MODE</span>
+          <span class="text-white-50 d-none d-md-inline" style="font-size: 0.78rem;">Instant 1-Click Role Switcher:</span>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-1">
+          <span class="demo-chip active" data-role="Donor">
+            <i class="bi bi-building"></i> 1. Restaurant Donor (Chef Marcus)
+          </span>
+          <span class="demo-chip" data-role="NGO">
+            <i class="bi bi-heart-pulse"></i> 2. NGO Coordinator (Dr. Sarah)
+          </span>
+          <span class="demo-chip" data-role="Volunteer">
+            <i class="bi bi-bicycle"></i> 3. Volunteer Courier (Alex R.)
+          </span>
+          <span class="demo-chip" data-role="Admin">
+            <i class="bi bi-shield-lock"></i> 4. System Admin (Harish S.)
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MAIN NAVIGATION BAR
+         ========================================== -->
+    <nav class="navbar navbar-expand-lg navbar-secondserve sticky-top">
+      <div class="container-fluid px-3 px-md-4">
+        <!-- Brand Logo -->
+        <a class="navbar-brand-logo" href="#home" onclick="window.navigateTo('home')">
+          <div class="brand-icon">
+            <i class="bi bi-recycle"></i>
+          </div>
+          <div>
+            Second<span class="brand-accent">Serve</span>
+            <div style="font-size: 0.62rem; font-weight: 600; letter-spacing: 0.05em; color: rgba(255,255,255,0.7); text-transform: uppercase;">
+              Surplus Food Rescue
+            </div>
+          </div>
+        </a>
+
+        <!-- Mobile Toggler -->
+        <button class="navbar-toggler text-white border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navContent">
+          <i class="bi bi-list fs-2"></i>
+        </button>
+
+        <!-- Nav Items -->
+        <div class="collapse navbar-collapse" id="navContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom active" href="#home" onclick="window.navigateTo('home')">
+                <i class="bi bi-house-door me-1"></i> Home
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="#about" onclick="window.navigateTo('about')">
+                <i class="bi bi-info-circle me-1"></i> About
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="#how-it-works" onclick="window.navigateTo('how-it-works')">
+                <i class="bi bi-gear-wide-connected me-1"></i> How It Works
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="#available-food" onclick="window.navigateTo('available-food')">
+                <i class="bi bi-box-seam me-1"></i> Available Food
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="#tracker" onclick="window.navigateTo('tracker')">
+                <i class="bi bi-geo-alt me-1"></i> Live Tracker
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-link-custom" href="#contact" onclick="window.navigateTo('contact')">
+                <i class="bi bi-envelope me-1"></i> Contact & FAQ
+              </a>
+            </li>
+          </ul>
+
+          <!-- Right Navigation Controls -->
+          <div class="d-flex align-items-center gap-2 gap-lg-3">
+            <!-- Active Dashboard Link Button -->
+            <a id="navDashboardLink" href="#dashboard-donor" class="btn btn-royal btn-sm py-2 px-3 fw-bold" onclick="window.navigateTo(this.getAttribute('href').replace('#',''))">
+              <i class="bi bi-speedometer2 me-1"></i> Dashboard
+            </a>
+
+            <!-- Notification Bell with Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-outline-white btn-sm position-relative py-2 px-2.5" data-bs-toggle="dropdown" aria-expanded="false" title="Notifications">
+                <i class="bi bi-bell fs-6"></i>
+                <span id="notifCountBadge" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger" style="font-size: 0.65rem;">
+                  2
+                </span>
+              </button>
+              <div class="dropdown-menu dropdown-menu-end notification-menu mt-2">
+                <div class="d-flex align-items-center justify-content-between p-2 border-bottom">
+                  <span class="fw-bold text-navy small">System Notifications</span>
+                  <span class="badge bg-light text-muted border" style="font-size: 0.7rem;">Live</span>
+                </div>
+                <div id="notificationListContainer">
+                  <!-- Populated by JavaScript -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Current User Badge Dropdown -->
+            <div class="dropdown">
+              <button class="btn btn-outline-white btn-sm p-1 px-2 dropdown-toggle d-flex align-items-center gap-2" data-bs-toggle="dropdown" aria-expanded="false">
+                <div id="navUserBadge">
+                  <!-- Populated by JavaScript -->
+                </div>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-end shadow-sm">
+                <li><h6 class="dropdown-header text-navy">Account Workspace</h6></li>
+                <li><a class="dropdown-item" href="#dashboard-donor" onclick="window.navigateTo('dashboard-donor')"><i class="bi bi-building me-2 text-primary"></i> Restaurant Donor Portal</a></li>
+                <li><a class="dropdown-item" href="#dashboard-ngo" onclick="window.navigateTo('dashboard-ngo')"><i class="bi bi-heart-pulse me-2 text-success"></i> NGO Charity Portal</a></li>
+                <li><a class="dropdown-item" href="#dashboard-volunteer" onclick="window.navigateTo('dashboard-volunteer')"><i class="bi bi-bicycle me-2 text-info"></i> Volunteer Courier Portal</a></li>
+                <li><a class="dropdown-item" href="#dashboard-admin" onclick="window.navigateTo('dashboard-admin')"><i class="bi bi-shield-lock me-2 text-danger"></i> System Administration</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#login" onclick="window.navigateTo('login')"><i class="bi bi-box-arrow-in-right me-2"></i> Switch / Login Account</a></li>
+                <li><a class="dropdown-item" href="#register" onclick="window.navigateTo('register')"><i class="bi bi-person-plus me-2"></i> Register New Organization</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ==========================================
+         VIEW 1: HOME PAGE
+         ========================================== -->
+    <div id="view-home" class="app-view">
+      <!-- Hero Section -->
+      <section class="hero-section">
+        <div class="container position-relative" style="z-index: 2;">
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-7">
+              <div class="hero-tagline">
+                <i class="bi bi-stars"></i> Good Food Deserves a Second Serve
+              </div>
+              <h1 class="hero-title">
+                Rescuing Surplus Food. <br>
+                <span>Feeding Communities.</span> <br>
+                <span class="highlight-green">Ending Hunger.</span>
+              </h1>
+              <p class="hero-subtitle">
+                SecondServe bridges five-star hotels and restaurants with verified NGOs and volunteer couriers to rescue nutritious, untouched surplus food within minutes.
+              </p>
+              <div class="d-flex flex-wrap gap-3 mb-4">
+                <button class="btn btn-emerald btn-lg px-4 py-3" onclick="window.navigateTo('dashboard-donor'); document.querySelector('[data-role=\'Donor\']')?.click();">
+                  <i class="bi bi-plus-circle me-2"></i> Donate Surplus Food
+                </button>
+                <button class="btn btn-outline-white btn-lg px-4 py-3" onclick="window.navigateTo('available-food')">
+                  <i class="bi bi-search me-2"></i> Find Food for NGO
+                </button>
+              </div>
+              <div class="d-flex align-items-center gap-3 pt-2 text-white-50 small">
+                <div><i class="bi bi-shield-check text-emerald"></i> FSSAI & Hygiene Verified</div>
+                <div>•</div>
+                <div><i class="bi bi-lightning-charge text-sky"></i> Sub-Hour Dispatches</div>
+                <div>•</div>
+                <div><i class="bi bi-tree text-vibrant"></i> Zero Landfill Waste</div>
+              </div>
+            </div>
+
+            <!-- Hero Stats Box -->
+            <div class="col-12 col-lg-5">
+              <div class="card-navy p-4 p-md-5 rounded-4 shadow-lg position-relative">
+                <h5 class="fw-bold mb-3 d-flex align-items-center gap-2">
+                  <i class="bi bi-speedometer2 text-emerald"></i> Real-Time Rescue Counter
+                </h5>
+                <div class="row g-3">
+                  <div class="col-6">
+                    <div class="stat-box">
+                      <div id="statTotalMeals" class="stat-number">4,820</div>
+                      <div class="stat-label">Meals Rescued</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="stat-box">
+                      <div id="statCo2Saved" class="stat-number">5,060 kg</div>
+                      <div class="stat-label">CO2 Prevented</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="stat-box">
+                      <div id="statPartnerDonors" class="stat-number">28 Verified</div>
+                      <div class="stat-label">Hotels & Donors</div>
+                    </div>
+                  </div>
+                  <div class="col-6">
+                    <div class="stat-box">
+                      <div id="statActiveNgos" class="stat-number">34 Shelters</div>
+                      <div class="stat-label">Partner NGOs</div>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 pt-3 border-top border-white border-opacity-10 text-center">
+                  <small class="text-white-50">
+                    <i class="bi bi-broadcast text-danger me-1"></i> Live tracking active across metropolitan zones
+                  </small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How It Works Section (4-Step Workflow) -->
+      <section class="py-5 bg-white">
+        <div class="container py-4">
+          <div class="text-center max-w-700 mx-auto mb-5">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">STREAMLINED 4-STEP PIPELINE</span>
+            <h2 class="fw-bold text-navy">How Surplus Rescue Works</h2>
+            <p class="text-muted">A fully coordinated logistics loop ensuring untouched food reaches plates safely and rapidly.</p>
+          </div>
+
+          <div class="row g-4">
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="workflow-step-card active-step">
+                <div class="workflow-number">1</div>
+                <h5 class="fw-bold text-navy mb-2">Restaurant Lists Food</h5>
+                <p class="text-muted small">Hotels and catering chefs post excess prepared dishes, batch volume, temperature conditions, and pickup time window.</p>
+                <div class="mt-auto small text-royal fw-semibold"><i class="bi bi-clock"></i> Takes &lt; 2 minutes</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="workflow-step-card">
+                <div class="workflow-number">2</div>
+                <h5 class="fw-bold text-navy mb-2">NGO Requests Surplus</h5>
+                <p class="text-muted small">Verified orphanages and food banks view urgent surplus listings, enter beneficiary headcounts, and request the batch.</p>
+                <div class="mt-auto small text-emerald fw-semibold"><i class="bi bi-check-circle"></i> Priority reservation</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="workflow-step-card">
+                <div class="workflow-number">3</div>
+                <h5 class="fw-bold text-navy mb-2">Volunteer Dispatched</h5>
+                <p class="text-muted small">Our volunteer couriers receive instant GPS notifications, inspect food container seals, and collect the cargo.</p>
+                <div class="mt-auto small text-sky fw-semibold"><i class="bi bi-bicycle"></i> Insulated carriers</div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-3">
+              <div class="workflow-step-card">
+                <div class="workflow-number">4</div>
+                <h5 class="fw-bold text-navy mb-2">Delivery & Distribution</h5>
+                <p class="text-muted small">NGO verifies food temperature upon arrival, feeds community members, and logs digital distribution confirmation.</p>
+                <div class="mt-auto small text-vibrant fw-semibold" style="color: var(--color-teal);"><i class="bi bi-heart-fill"></i> 100% Zero Food Waste</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Urgent Surplus Available Right Now -->
+      <section class="py-5 bg-light">
+        <div class="container py-4">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <div>
+              <span class="badge bg-danger-subtle text-danger px-3 py-1.5 rounded-pill fw-bold mb-2">
+                <i class="bi bi-lightning-fill"></i> URGENT RESCUES NEEDED
+              </span>
+              <h2 class="fw-bold text-navy mb-0">Active Surplus Batches Ready for Pickup</h2>
+            </div>
+            <button class="btn btn-royal" onclick="window.navigateTo('available-food')">
+              View All Available Listings <i class="bi bi-arrow-right ms-1"></i>
+            </button>
+          </div>
+
+          <div id="homeFeaturedFoodRow" class="row g-4">
+            <!-- Populated dynamically by JavaScript -->
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Food Rescue Matters Section -->
+      <section class="py-5 bg-white">
+        <div class="container py-4">
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-lg-6">
+              <div class="position-relative">
+                <img src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&w=800&q=80" alt="Volunteers serving meals" class="img-fluid rounded-4 shadow-lg w-100">
+                <div class="card-navy p-3 rounded-3 position-absolute bottom-0 start-0 m-3 shadow d-none d-sm-block" style="max-width: 280px;">
+                  <div class="fw-bold text-emerald"><i class="bi bi-patch-check-fill"></i> 100% Verified Quality</div>
+                  <small class="text-white-50">Every meal is temperature-audited before handover to charities.</small>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-lg-6">
+              <span class="badge bg-emerald text-navy px-3 py-1.5 rounded-pill fw-bold mb-2">THE CRISIS & OUR SOLUTION</span>
+              <h2 class="fw-bold text-navy mb-3">1.3 Billion Tons of Food is Wasted Globally Each Year</h2>
+              <p class="text-muted">
+                While hotel banquets and bakeries routinely discard high-grade untouched surplus due to unpredictable guest turnout, millions of children and families struggle with daily food insecurity in the same municipal boundaries.
+              </p>
+              <div class="row g-3 mb-4">
+                <div class="col-sm-6">
+                  <div class="p-3 bg-light rounded-3 border-start border-4 border-primary">
+                    <h5 class="fw-bold text-navy mb-1">UN SDG 2: Zero Hunger</h5>
+                    <p class="text-muted small mb-0">Distributing fresh proteins, cooked meals, and grains to local shelters.</p>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="p-3 bg-light rounded-3 border-start border-4 border-success">
+                    <h5 class="fw-bold text-navy mb-1">UN SDG 13: Climate Action</h5>
+                    <p class="text-muted small mb-0">Preventing decomposing food in landfills, slashing methane emissions.</p>
+                  </div>
+                </div>
+              </div>
+              <button class="btn btn-royal" onclick="window.navigateTo('about')">
+                Read Our Mission & Vision <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials / Voices from the Field -->
+      <section class="py-5 bg-light">
+        <div class="container py-4">
+          <div class="text-center max-w-700 mx-auto mb-5">
+            <h2 class="fw-bold text-navy">Trusted Across the Coordination Network</h2>
+            <p class="text-muted">Hear from the chefs, charity directors, and volunteers powered by SecondServe.</p>
+          </div>
+          <div class="row g-4">
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 bg-white h-100 d-flex flex-column">
+                <div class="text-warning mb-3">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="text-muted small flex-grow-1">
+                  "At Grand Hyatt, throwing away untouched banquet pilaf broke our kitchen brigade's heart. SecondServe lets us list 80 portions in 90 seconds. A courier arrives with insulated boxes before the dinner service even closes."
+                </p>
+                <div class="d-flex align-items-center gap-2 pt-2 border-top">
+                  <img src="https://images.unsplash.com/photo-1577219491135-ce391730fb2c?auto=format&fit=crop&w=100&q=80" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                  <div>
+                    <div class="fw-bold text-navy small">Chef Marcus Sterling</div>
+                    <small class="text-muted">Executive Banquet Chef, Grand Hyatt</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 bg-white h-100 d-flex flex-column">
+                <div class="text-warning mb-3">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="text-muted small flex-grow-1">
+                  "The real-time notification system is a lifesaver. We know the exact portion size, allergen breakdown, and arrival ETA. Our shelter feeds 120 children healthy, five-star nutrition daily."
+                </p>
+                <div class="d-flex align-items-center gap-2 pt-2 border-top">
+                  <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=100&q=80" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                  <div>
+                    <div class="fw-bold text-navy small">Dr. Sarah Jenkins</div>
+                    <small class="text-muted">Director, Hope & Nutrition Foundation</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 bg-white h-100 d-flex flex-column">
+                <div class="text-warning mb-3">
+                  <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+                </div>
+                <p class="text-muted small flex-grow-1">
+                  "I use my cargo bike between college lectures. The volunteer dashboard shows me the pickup coordinates, donor contact, and drop-off instructions. It's meaningful, tangible community impact."
+                </p>
+                <div class="d-flex align-items-center gap-2 pt-2 border-top">
+                  <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=100&q=80" class="rounded-circle" style="width: 40px; height: 40px; object-fit: cover;">
+                  <div>
+                    <div class="fw-bold text-navy small">Alex Rivera</div>
+                    <small class="text-muted">Student & Eco-Courier Volunteer</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 2: ABOUT US
+         ========================================== -->
+    <div id="view-about" class="app-view d-none">
+      <section class="py-5 bg-white border-bottom">
+        <div class="container py-4">
+          <div class="max-w-800 mx-auto text-center mb-5">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">OUR FOUNDATION & PURPOSE</span>
+            <h1 class="fw-bold text-navy display-5 mb-3">Eliminating Urban Food Waste Through Intelligent Coordination</h1>
+            <p class="lead text-muted">
+              SecondServe was engineered as a decentralized surplus food rescue platform connecting hospitality donors, verified non-governmental organizations, and volunteer couriers into a synchronized, transparent supply chain.
+            </p>
+          </div>
+
+          <div class="row g-4 mb-5">
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 text-center h-100">
+                <div class="brand-icon mx-auto mb-3" style="width: 56px; height: 56px; font-size: 1.6rem;">
+                  <i class="bi bi-compass"></i>
+                </div>
+                <h4 class="fw-bold text-navy">Our Mission</h4>
+                <p class="text-muted small">
+                  To ensure that no edible, nutritious meal prepared in hotels, restaurants, or bakeries goes to waste when vulnerable families are in need of sustenance.
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 text-center h-100">
+                <div class="brand-icon mx-auto mb-3" style="width: 56px; height: 56px; font-size: 1.6rem; background: linear-gradient(135deg, var(--color-emerald) 0%, var(--color-teal) 100%);">
+                  <i class="bi bi-eye"></i>
+                </div>
+                <h4 class="fw-bold text-navy">Our Vision</h4>
+                <p class="text-muted small">
+                  A zero-waste circular urban ecosystem where technology eliminates logistical friction and empowers community volunteers to redistribute surplus within one hour.
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="card-custom p-4 text-center h-100">
+                <div class="brand-icon mx-auto mb-3" style="width: 56px; height: 56px; font-size: 1.6rem; background: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);">
+                  <i class="bi bi-shield-check"></i>
+                </div>
+                <h4 class="fw-bold text-navy">Food Safety First</h4>
+                <p class="text-muted small">
+                  Strict adherence to HACCP and FSSAI standards, cold-chain preservation protocols, allergen labeling, and unbroken digital chain-of-custody tracking.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Problem Breakdown -->
+          <div class="card-navy p-4 p-md-5 rounded-4 shadow-md mb-5">
+            <div class="row align-items-center g-4">
+              <div class="col-12 col-lg-6">
+                <h3 class="fw-bold text-white mb-3">The Anatomy of the Food Waste Paradox</h3>
+                <p class="text-white-50">
+                  Globally, over 30% of all food produced is lost or wasted. The decomposition of this wasted food in municipal landfills generates approximately 8% to 10% of total anthropogenic greenhouse gas emissions.
+                </p>
+                <div class="d-flex flex-column gap-2 text-white">
+                  <div><i class="bi bi-check-circle-fill text-emerald me-2"></i> <strong>783 Million People</strong> sleep hungry every single night.</div>
+                  <div><i class="bi bi-check-circle-fill text-emerald me-2"></i> <strong>Commercial Kitchens</strong> face unpredictable cancellation & surplus.</div>
+                  <div><i class="bi bi-check-circle-fill text-emerald me-2"></i> <strong>Coordination Lag</strong> was the bottleneck — solved by SecondServe.</div>
+                </div>
+              </div>
+              <div class="col-12 col-lg-6">
+                <div class="bg-white p-4 rounded-3 text-navy">
+                  <h5 class="fw-bold text-navy mb-3"><i class="bi bi-bar-chart-fill text-royal me-2"></i> Municipal Impact Matrix</h5>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between small fw-bold mb-1">
+                      <span>Hospitality Surplus Rescued</span>
+                      <span class="text-royal">92% Target</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                      <div class="progress-bar bg-primary" style="width: 92%;"></div>
+                    </div>
+                  </div>
+                  <div class="mb-3">
+                    <div class="d-flex justify-content-between small fw-bold mb-1">
+                      <span>Average Dispatch & Transit Time</span>
+                      <span class="text-emerald">38 Minutes</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                      <div class="progress-bar bg-success" style="width: 85%;"></div>
+                    </div>
+                  </div>
+                  <div>
+                    <div class="d-flex justify-content-between small fw-bold mb-1">
+                      <span>Beneficiary Nutrition Index</span>
+                      <span class="text-teal">Grade A Proteins & Grains</span>
+                    </div>
+                    <div class="progress" style="height: 10px;">
+                      <div class="progress-bar bg-info" style="width: 96%;"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 3: HOW IT WORKS (DETAILED)
+         ========================================== -->
+    <div id="view-how-it-works" class="app-view d-none">
+      <section class="py-5 bg-white">
+        <div class="container py-4">
+          <div class="max-w-800 mx-auto text-center mb-5">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">END-TO-END ARCHITECTURE</span>
+            <h1 class="fw-bold text-navy display-5 mb-3">How SecondServe Orchestrates Every Rescue</h1>
+            <p class="lead text-muted">
+              From the moment surplus is identified in a banquet kitchen to the moment meals are served at a community shelter, every handoff is audited and verified.
+            </p>
+          </div>
+
+          <!-- Step 1 Deep Dive: Donor -->
+          <div class="row align-items-center g-5 mb-5 pb-4 border-bottom">
+            <div class="col-12 col-md-6 order-2 order-md-1">
+              <span class="badge bg-primary text-white mb-2">STEP 1: THE DONOR</span>
+              <h3 class="fw-bold text-navy">Surplus Listing in Minutes</h3>
+              <p class="text-muted">
+                Hotels and catering managers access their dedicated donor portal. They submit the food category, portions, preparation timestamp, safe storage parameters (e.g. insulated hot container >65°C), and allergen details.
+              </p>
+              <ul class="list-unstyled text-secondary small">
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Prevents food spoilage by calculating dynamic countdown timers.</li>
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Automatic digital food safety guarantee logged into database.</li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 order-1 order-md-2">
+              <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=800&q=80" alt="Restaurant kitchen" class="img-fluid rounded-4 shadow-md w-100">
+            </div>
+          </div>
+
+          <!-- Step 2 Deep Dive: NGO -->
+          <div class="row align-items-center g-5 mb-5 pb-4 border-bottom">
+            <div class="col-12 col-md-6">
+              <img src="https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?auto=format&fit=crop&w=800&q=80" alt="Shelter distribution" class="img-fluid rounded-4 shadow-md w-100">
+            </div>
+            <div class="col-12 col-md-6">
+              <span class="badge bg-success text-white mb-2">STEP 2: THE NGO</span>
+              <h3 class="fw-bold text-navy">Instant Request & Capacity Matching</h3>
+              <p class="text-muted">
+                Verified charities, orphanages, and emergency kitchens browse active listings in their vicinity. With a single click, an NGO requests the donation, inputting beneficiary headcounts and target arrival window.
+              </p>
+              <ul class="list-unstyled text-secondary small">
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Race-condition prevention: Once requested, listing locks against duplicate claims.</li>
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Automatic SMS/Push alert sent straight to the donor chef.</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Step 3 Deep Dive: Volunteer -->
+          <div class="row align-items-center g-5 mb-5 pb-4 border-bottom">
+            <div class="col-12 col-md-6 order-2 order-md-1">
+              <span class="badge bg-info text-dark mb-2">STEP 3: THE VOLUNTEER</span>
+              <h3 class="fw-bold text-navy">Smart Volunteer Dispatch & Custody Chain</h3>
+              <p class="text-muted">
+                Once the donor approves the NGO request, active volunteer couriers (with bikes, vans, or cargo carts) receive an alert. The courier verifies the hygiene seal, confirms pickup, and transports the cargo directly.
+              </p>
+              <ul class="list-unstyled text-secondary small">
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Live 7-step tracker visible to all participants.</li>
+                <li><i class="bi bi-check2 text-emerald me-2"></i> Digital custody signature recorded at pickup and drop-off.</li>
+              </ul>
+            </div>
+            <div class="col-12 col-md-6 order-1 order-md-2">
+              <img src="https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?auto=format&fit=crop&w=800&q=80" alt="Volunteer courier" class="img-fluid rounded-4 shadow-md w-100">
+            </div>
+          </div>
+
+          <!-- Step 4 Deep Dive: Completion -->
+          <div class="row align-items-center g-5">
+            <div class="col-12 col-md-6">
+              <img src="https://images.unsplash.com/photo-1541802645635-11f2286a7482?auto=format&fit=crop&w=800&q=80" alt="Happy community" class="img-fluid rounded-4 shadow-md w-100">
+            </div>
+            <div class="col-12 col-md-6">
+              <span class="badge bg-dark text-white mb-2">STEP 4: IMPACT VERIFICATION</span>
+              <h3 class="fw-bold text-navy">Distribution Logged & Loop Closed</h3>
+              <p class="text-muted">
+                The receiving NGO confirms safe delivery, serves the meals to beneficiaries, and marks the cycle as "Distribution Completed". Feedback and metric tallies update automatically across platform dashboards.
+              </p>
+              <button class="btn btn-emerald" onclick="window.navigateTo('available-food')">
+                Explore Available Food Catalog <i class="bi bi-arrow-right ms-1"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 4: AVAILABLE FOOD (DIRECTORY & SEARCH)
+         ========================================== -->
+    <div id="view-available-food" class="app-view d-none">
+      <section class="py-5 bg-white border-bottom">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 mb-4">
+            <div>
+              <span class="badge bg-primary-subtle text-primary px-3 py-1.5 rounded-pill fw-bold mb-2">LIVE RESCUE DIRECTORY</span>
+              <h1 class="fw-bold text-navy h2 mb-1">Available Surplus Food Donations</h1>
+              <p class="text-muted small mb-0">Browse real-time listings from partner restaurants, hotels, and bakery kitchens.</p>
+            </div>
+            <div class="d-flex align-items-center gap-2">
+              <span id="foodResultsCount" class="badge bg-light text-navy border px-3 py-2 fw-bold">
+                Loading listings...
+              </span>
+            </div>
+          </div>
+
+          <!-- Search & Filter Controls Bar -->
+          <div class="card-custom p-3 p-md-4 mb-4 bg-light border">
+            <div class="row g-3 align-items-center">
+              <div class="col-12 col-md-6 col-lg-5">
+                <div class="input-group">
+                  <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                  <input type="text" id="foodSearchInput" class="form-control form-control-custom border-start-0" placeholder="Search by dish name, hotel, or location...">
+                </div>
+              </div>
+              <div class="col-6 col-md-3 col-lg-3">
+                <select id="dietaryFilterSelect" class="form-select form-select-custom">
+                  <option value="All">All Diets (Veg & Non-Veg)</option>
+                  <option value="Veg">Vegetarian Only</option>
+                  <option value="Non-Veg">Non-Vegetarian</option>
+                  <option value="Vegan">Vegan Only</option>
+                </select>
+              </div>
+              <div class="col-6 col-md-3 col-lg-4 text-end">
+                <button class="btn btn-royal w-100" data-bs-toggle="modal" data-bs-target="#modalAddDonation">
+                  <i class="bi bi-plus-circle me-1"></i> Post New Surplus
+                </button>
+              </div>
+            </div>
+
+            <!-- Category Pills -->
+            <div class="d-flex flex-wrap align-items-center gap-2 mt-3 pt-3 border-top">
+              <span class="small fw-bold text-muted me-2">Category:</span>
+              <button class="btn btn-sm btn-royal category-filter-btn" data-category="All">All Categories</button>
+              <button class="btn btn-sm btn-outline-custom category-filter-btn" data-category="Cooked Meals">Cooked Meals</button>
+              <button class="btn btn-sm btn-outline-custom category-filter-btn" data-category="Bakery">Bakery & Breads</button>
+              <button class="btn btn-sm btn-outline-custom category-filter-btn" data-category="Fresh Produce">Fresh Produce</button>
+              <button class="btn btn-sm btn-outline-custom category-filter-btn" data-category="Dairy & Packaged">Dairy & Packaged</button>
+            </div>
+          </div>
+
+          <!-- Food Grid Cards Container -->
+          <div id="availableFoodGrid" class="row g-4">
+            <!-- Populated dynamically by JavaScript -->
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 5: PUBLIC LIVE TRACKER
+         ========================================== -->
+    <div id="view-tracker" class="app-view d-none">
+      <section class="py-5 bg-white">
+        <div class="container py-4">
+          <div class="max-w-800 mx-auto text-center mb-5">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">TRANSPARENT AUDIT TRAIL</span>
+            <h1 class="fw-bold text-navy display-6 mb-3">Live Donation Tracking Portal</h1>
+            <p class="text-muted">
+              Enter any 7-stage Rescue ID (e.g. <code>SEC-1001</code>, <code>SEC-1002</code>, <code>SEC-1004</code>) to inspect live progress, timestamps, volunteer dispatch, and distribution notes.
+            </p>
+
+            <div class="card-custom p-3 max-w-600 mx-auto bg-light border shadow-sm">
+              <div class="input-group">
+                <span class="input-group-text bg-white border-end-0"><i class="bi bi-qr-code-scan text-muted"></i></span>
+                <input type="text" id="inputTrackerId" class="form-control form-control-custom border-start-0 font-monospace text-uppercase" placeholder="Enter Rescue ID, e.g. SEC-1001" value="SEC-1001">
+                <button id="btnSearchTracker" class="btn btn-royal px-4">
+                  <i class="bi bi-search me-1"></i> Track Now
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Samples to Click -->
+          <div class="text-center mb-5">
+            <small class="text-muted me-2">Try quick examples:</small>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1001')">SEC-1001 (Listed)</span>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1002')">SEC-1002 (Requested)</span>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1003')">SEC-1003 (Approved)</span>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1004')">SEC-1004 (Volunteer Assigned)</span>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1005')">SEC-1005 (Picked Up)</span>
+            <span class="badge bg-light text-navy border cursor-pointer me-1 p-2" onclick="window.openTrackerModal('SEC-1006')">SEC-1006 (Delivered)</span>
+            <span class="badge bg-light text-navy border cursor-pointer p-2" onclick="window.openTrackerModal('SEC-1007')">SEC-1007 (Distribution Completed)</span>
+          </div>
+
+          <!-- Lifecycle explanation banner -->
+          <div class="card-navy p-4 rounded-4 shadow-sm">
+            <h5 class="fw-bold text-white mb-2"><i class="bi bi-diagram-3-fill text-emerald me-2"></i> The 7 Strict Lifecycle Statuses</h5>
+            <div class="row g-2 text-white-50 small mt-2">
+              <div class="col-12 col-md-4">1. <strong>Listed:</strong> Added by Donor with expiry window.</div>
+              <div class="col-12 col-md-4">2. <strong>Requested:</strong> NGO claims batch with beneficiary count.</div>
+              <div class="col-12 col-md-4">3. <strong>Approved:</strong> Donor confirms packaging ready for pickup.</div>
+              <div class="col-12 col-md-4">4. <strong>Volunteer Assigned:</strong> Courier accepts the transport route.</div>
+              <div class="col-12 col-md-4">5. <strong>Picked Up:</strong> Temperature checked and in transit.</div>
+              <div class="col-12 col-md-4">6. <strong>Delivered:</strong> Received by NGO shelter kitchen.</div>
+              <div class="col-12 col-md-4">7. <strong>Distribution Completed:</strong> Meals served & verified.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 6: CONTACT & FAQ
+         ========================================== -->
+    <div id="view-contact" class="app-view d-none">
+      <section class="py-5 bg-white">
+        <div class="container py-4">
+          <div class="max-w-800 mx-auto text-center mb-5">
+            <span class="badge bg-primary-subtle text-primary px-3 py-2 rounded-pill fw-bold mb-2">24/7 RESCUE DISPATCH SUPPORT</span>
+            <h1 class="fw-bold text-navy display-6 mb-3">Get in Touch with SecondServe</h1>
+            <p class="text-muted">
+              Whether you are a five-star hotel chain looking to partner or an NGO seeking emergency hunger relief, our operations desk is here to assist.
+            </p>
+          </div>
+
+          <div class="row g-5">
+            <!-- Contact Form -->
+            <div class="col-12 col-lg-7">
+              <div class="card-custom p-4 p-md-5 bg-light border">
+                <h4 class="fw-bold text-navy mb-4">Send Us a Direct Message</h4>
+                <form id="contactForm">
+                  <div class="row g-3">
+                    <div class="col-12 col-md-6">
+                      <label class="form-label-custom">Your Name</label>
+                      <input type="text" class="form-control form-control-custom" placeholder="John Doe" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label class="form-label-custom">Email Address</label>
+                      <input type="email" class="form-control form-control-custom" placeholder="john@example.com" required>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label class="form-label-custom">Organization Type</label>
+                      <select class="form-select form-select-custom">
+                        <option>Restaurant / Hotel Donor</option>
+                        <option>NGO / Charity Food Bank</option>
+                        <option>Volunteer Logistics Courier</option>
+                        <option>Academic / College Project Inquiry</option>
+                        <option>Press / Partnership</option>
+                      </select>
+                    </div>
+                    <div class="col-12 col-md-6">
+                      <label class="form-label-custom">Phone Number</label>
+                      <input type="tel" class="form-control form-control-custom" placeholder="+1 (555) 000-0000">
+                    </div>
+                    <div class="col-12">
+                      <label class="form-label-custom">Message</label>
+                      <textarea class="form-control form-control-custom" rows="4" placeholder="How can SecondServe collaborate with your organization?" required></textarea>
+                    </div>
+                    <div class="col-12">
+                      <button type="submit" class="btn btn-royal w-100 py-3 fw-bold">
+                        <i class="bi bi-send me-1"></i> Submit Message to Operations Desk
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+
+            <!-- Contact Info & FAQs -->
+            <div class="col-12 col-lg-5">
+              <div class="card-navy p-4 rounded-4 mb-4 text-white">
+                <h5 class="fw-bold text-white mb-3"><i class="bi bi-headset text-emerald me-2"></i> Immediate Coordination Hotline</h5>
+                <p class="text-white-50 small mb-3">For urgent banquet food surplus needing collection in under 60 minutes:</p>
+                <div class="d-flex align-items-center gap-3 mb-2">
+                  <i class="bi bi-telephone-fill text-emerald fs-4"></i>
+                  <div>
+                    <div class="fw-bold">+1 (800) 732-6637</div>
+                    <small class="text-white-50">Toll-Free Rescue Dispatch Hotline</small>
+                  </div>
+                </div>
+                <div class="d-flex align-items-center gap-3">
+                  <i class="bi bi-envelope-fill text-sky fs-4"></i>
+                  <div>
+                    <div class="fw-bold">rescue@secondserve.org</div>
+                    <small class="text-white-50">Central Coordination Email</small>
+                  </div>
+                </div>
+              </div>
+
+              <!-- FAQ Accordion -->
+              <h5 class="fw-bold text-navy mb-3">Frequently Asked Questions</h5>
+              <div class="accordion" id="faqAccordion">
+                <div class="accordion-item border rounded mb-2 overflow-hidden">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold text-navy" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">
+                      Who is liable for food safety?
+                    </button>
+                  </h2>
+                  <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body small text-muted">
+                      SecondServe adheres to Good Samaritan Food Donation principles. Donors inspect and certify that food is hygienic and safely stored. Volunteers verify packaging seals upon pickup.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border rounded mb-2 overflow-hidden">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold text-navy" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">
+                      Can multiple NGOs request the same food batch?
+                    </button>
+                  </h2>
+                  <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body small text-muted">
+                      No. To prevent duplicate pickup runs, the system instantly locks a listing once an NGO requests it. If the donor rejects it, it returns to the open catalog.
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item border rounded overflow-hidden">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed fw-bold text-navy" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">
+                      How are volunteers compensated?
+                    </button>
+                  </h2>
+                  <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body small text-muted">
+                      Volunteers earn verified community service hours, carbon offset impact certificates, and sponsored fuel stipends from corporate social responsibility (CSR) partners.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 7: LOGIN
+         ========================================== -->
+    <div id="view-login" class="app-view d-none">
+      <section class="py-5 bg-light">
+        <div class="container py-4">
+          <div class="max-w-500 mx-auto">
+            <!-- Quick Demo 1-Click Role Login Bar -->
+            <div class="card-custom p-3 p-md-4 mb-4 bg-white border border-primary">
+              <div class="fw-bold text-navy mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-lightning-charge-fill text-warning"></i> Fast 1-Click Demo Logins
+              </div>
+              <p class="text-muted small mb-3">Jump into any of the 4 role dashboards instantly without typing:</p>
+              <div class="d-grid gap-2">
+                <button class="btn btn-outline-primary btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Donor\']')?.click();">
+                  <i class="bi bi-building me-2"></i> <strong>Chef Marcus</strong> (Restaurant / Hotel Donor)
+                </button>
+                <button class="btn btn-outline-success btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'NGO\']')?.click();">
+                  <i class="bi bi-heart-pulse me-2"></i> <strong>Dr. Sarah Jenkins</strong> (NGO / Shelter Coordinator)
+                </button>
+                <button class="btn btn-outline-info btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Volunteer\']')?.click();">
+                  <i class="bi bi-bicycle me-2"></i> <strong>Alex Rivera</strong> (Volunteer Courier)
+                </button>
+                <button class="btn btn-outline-danger btn-sm text-start py-2" onclick="document.querySelector('[data-role=\'Admin\']')?.click();">
+                  <i class="bi bi-shield-lock me-2"></i> <strong>Harish Solaiyappan</strong> (Master System Admin)
+                </button>
+              </div>
+            </div>
+
+            <!-- Standard Login Form -->
+            <div class="card-custom p-4 p-md-5 bg-white">
+              <h3 class="fw-bold text-navy mb-1">Sign In</h3>
+              <p class="text-muted small mb-4">Access your SecondServe coordination portal</p>
+
+              <form id="loginForm">
+                <div class="mb-3">
+                  <label class="form-label-custom">Email Address</label>
+                  <input type="email" id="loginEmail" class="form-control form-control-custom" value="donor@grandhyatt.com" required>
+                </div>
+                <div class="mb-3">
+                  <label class="form-label-custom">Password</label>
+                  <input type="password" id="loginPassword" class="form-control form-control-custom" value="password123" required>
+                </div>
+                <button type="submit" class="btn btn-royal w-100 py-2.5 fw-bold mb-3">
+                  Sign In to Dashboard
+                </button>
+                <div class="text-center small text-muted">
+                  Don't have an account yet? <a href="#register" onclick="window.navigateTo('register')" class="fw-bold">Register Organization</a>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 8: REGISTRATION
+         ========================================== -->
+    <div id="view-register" class="app-view d-none">
+      <section class="py-5 bg-light">
+        <div class="container py-4">
+          <div class="max-w-600 mx-auto">
+            <div class="card-custom p-4 p-md-5 bg-white">
+              <span class="badge bg-primary-subtle text-primary px-3 py-1.5 rounded-pill fw-bold mb-2">JOIN SECONDSERVE</span>
+              <h3 class="fw-bold text-navy mb-1">Register New Account</h3>
+              <p class="text-muted small mb-4">Choose your role in the food rescue network</p>
+
+              <form id="registerForm">
+                <div class="mb-3">
+                  <label class="form-label-custom">Select Your Role</label>
+                  <select id="regRole" class="form-select form-select-custom fw-bold" required>
+                    <option value="Donor">Restaurant / Hotel / Bakery (Food Donor)</option>
+                    <option value="NGO">NGO / Charity / Shelter (Food Recipient)</option>
+                    <option value="Volunteer">Volunteer Logistics Courier (Transport)</option>
+                  </select>
+                </div>
+
+                <div class="row g-3">
+                  <div class="col-12 col-md-6">
+                    <label class="form-label-custom">Full Name</label>
+                    <input type="text" id="regName" class="form-control form-control-custom" placeholder="e.g. John Doe" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label-custom">Email Address</label>
+                    <input type="email" id="regEmail" class="form-control form-control-custom" placeholder="name@organization.com" required>
+                  </div>
+                  <div class="col-12">
+                    <label class="form-label-custom">Organization / Establishment Name</label>
+                    <input type="text" id="regOrg" class="form-control form-control-custom" placeholder="e.g. The Grand Bistro / Hope Shelter" required>
+                  </div>
+                  <div id="regLicenseGroup" class="col-12">
+                    <label id="regLicenseLabel" class="form-label-custom">FSSAI / Food Hygiene License Number</label>
+                    <input type="text" id="regLicense" class="form-control form-control-custom font-monospace" placeholder="e.g. FSSAI-987123456789">
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label-custom">Contact Phone</label>
+                    <input type="tel" id="regPhone" class="form-control form-control-custom" placeholder="+1 (555) 000-0000" required>
+                  </div>
+                  <div class="col-12 col-md-6">
+                    <label class="form-label-custom">Password</label>
+                    <input type="password" id="regPassword" class="form-control form-control-custom" value="password123" required>
+                  </div>
+                  <div class="col-12">
+                    <button type="submit" class="btn btn-emerald w-100 py-3 fw-bold mt-2">
+                      <i class="bi bi-person-check me-1"></i> Complete Registration & Access Dashboard
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <!-- ==========================================
+         VIEW 9: DASHBOARD – DONOR
+         ========================================== -->
+    <div id="view-dashboard-donor" class="app-view d-none">
+      <div id="donor-dashboard-container">
+        <!-- Rendered by js/dashboards.js -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 10: DASHBOARD – NGO
+         ========================================== -->
+    <div id="view-dashboard-ngo" class="app-view d-none">
+      <div id="ngo-dashboard-container">
+        <!-- Rendered by js/dashboards.js -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 11: DASHBOARD – VOLUNTEER
+         ========================================== -->
+    <div id="view-dashboard-volunteer" class="app-view d-none">
+      <div id="volunteer-dashboard-container">
+        <!-- Rendered by js/dashboards.js -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         VIEW 12: DASHBOARD – ADMIN
+         ========================================== -->
+    <div id="view-dashboard-admin" class="app-view d-none">
+      <div id="admin-dashboard-container">
+        <!-- Rendered by js/dashboards.js -->
+      </div>
+    </div>
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+    <footer class="bg-navy text-white pt-5 pb-4 border-top border-white border-opacity-10" style="background-color: var(--color-navy);">
+      <div class="container">
+        <div class="row g-4 pb-4 border-bottom border-white border-opacity-10">
+          <div class="col-12 col-md-4">
+            <div class="d-flex align-items-center gap-2 mb-3">
+              <div class="brand-icon" style="width: 36px; height: 36px; font-size: 1.1rem;">
+                <i class="bi bi-recycle"></i>
+              </div>
+              <h5 class="fw-bold mb-0 text-white">Second<span class="text-emerald">Serve</span></h5>
+            </div>
+            <p class="text-white-50 small mb-3">
+              Surplus Food Rescue Coordination System connecting restaurants, hotels, charities, and volunteer couriers to end hunger and eliminate organic landfill waste.
+            </p>
+            <div class="d-flex gap-2">
+              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-twitter-x"></i></a>
+              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-linkedin"></i></a>
+              <a href="#" class="btn btn-sm btn-outline-white"><i class="bi bi-github"></i></a>
+            </div>
+          </div>
+          <div class="col-6 col-md-2">
+            <h6 class="fw-bold text-white mb-3">Quick Navigation</h6>
+            <ul class="list-unstyled small text-white-50 d-flex flex-column gap-2">
+              <li><a href="#home" onclick="window.navigateTo('home')" class="text-white-50">Home</a></li>
+              <li><a href="#about" onclick="window.navigateTo('about')" class="text-white-50">About Mission</a></li>
+              <li><a href="#how-it-works" onclick="window.navigateTo('how-it-works')" class="text-white-50">How It Works</a></li>
+              <li><a href="#available-food" onclick="window.navigateTo('available-food')" class="text-white-50">Available Food</a></li>
+              <li><a href="#tracker" onclick="window.navigateTo('tracker')" class="text-white-50">Live Tracker</a></li>
+            </ul>
+          </div>
+          <div class="col-6 col-md-3">
+            <h6 class="fw-bold text-white mb-3">Role Portals</h6>
+            <ul class="list-unstyled small text-white-50 d-flex flex-column gap-2">
+              <li><a href="#dashboard-donor" onclick="document.querySelector('[data-role=\'Donor\']')?.click();" class="text-white-50"><i class="bi bi-building me-1"></i> Donor Portal</a></li>
+              <li><a href="#dashboard-ngo" onclick="document.querySelector('[data-role=\'NGO\']')?.click();" class="text-white-50"><i class="bi bi-heart-pulse me-1"></i> NGO Portal</a></li>
+              <li><a href="#dashboard-volunteer" onclick="document.querySelector('[data-role=\'Volunteer\']')?.click();" class="text-white-50"><i class="bi bi-bicycle me-1"></i> Volunteer Portal</a></li>
+              <li><a href="#dashboard-admin" onclick="document.querySelector('[data-role=\'Admin\']')?.click();" class="text-white-50"><i class="bi bi-shield-lock me-1"></i> Admin HQ</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-3">
+            <h6 class="fw-bold text-white mb-3">College Project Demo</h6>
+            <div class="p-3 bg-white bg-opacity-5 rounded-3 border border-white border-opacity-10 small text-white-50">
+              <div class="text-emerald fw-bold mb-1"><i class="bi bi-code-slash"></i> Tech Stack:</div>
+              <div>Frontend: HTML5, CSS3, Vanilla JS, Bootstrap 5.3</div>
+              <div>Backend: Java Spring Boot 3 & MySQL</div>
+              <div class="mt-2 pt-2 border-top border-white border-opacity-10 text-white">
+                <i class="bi bi-check-circle-fill text-vibrant"></i> Pure CSS/JS architecture.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="pt-3 d-flex flex-wrap align-items-center justify-content-between small text-white-50">
+          <div>&copy; 2026 SecondServe Coordination Platform. All rights reserved.</div>
+          <div>Tagline: <em>"Good Food Deserves a Second Serve"</em></div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- ==========================================
+         MODAL 1: ADD SURPLUS FOOD DONATION
+         ========================================== -->
+    <div class="modal fade" id="modalAddDonation" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-4">
+            <div>
+              <h5 class="modal-title fw-bold"><i class="bi bi-plus-circle me-2 text-emerald"></i> List Surplus Food Donation</h5>
+              <small class="text-white-50">Broadcast excess portions to local registered charities</small>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="formAddDonation">
+            <div class="modal-body p-4">
+              <div class="row g-3">
+                <div class="col-12 col-md-8">
+                  <label class="form-label-custom">Food Item Name / Description</label>
+                  <input type="text" name="foodName" class="form-control form-control-custom" placeholder="e.g. Saffron Biryani & Vegetable Korma" required>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label-custom">Category</label>
+                  <select name="category" class="form-select form-select-custom" required>
+                    <option value="Cooked Meals">Cooked Meals</option>
+                    <option value="Bakery">Bakery & Breads</option>
+                    <option value="Fresh Produce">Fresh Produce</option>
+                    <option value="Dairy & Packaged">Dairy & Packaged</option>
+                    <option value="Beverages">Beverages</option>
+                  </select>
+                </div>
+
+                <div class="col-6 col-md-4">
+                  <label class="form-label-custom">Dietary Type</label>
+                  <select name="dietary" class="form-select form-select-custom" required>
+                    <option value="Veg">Vegetarian</option>
+                    <option value="Non-Veg">Non-Vegetarian</option>
+                    <option value="Vegan">Vegan</option>
+                  </select>
+                </div>
+                <div class="col-6 col-md-4">
+                  <label class="form-label-custom">Quantity (Display text)</label>
+                  <input type="text" name="quantity" class="form-control form-control-custom" placeholder="e.g. 50 boxes (~20 kg)" required>
+                </div>
+                <div class="col-12 col-md-4">
+                  <label class="form-label-custom">Estimated Portions (Headcount)</label>
+                  <input type="number" name="servings" class="form-control form-control-custom" placeholder="e.g. 50" min="1" required>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Preparation Time</label>
+                  <input type="text" name="prepTime" class="form-control form-control-custom" placeholder="e.g. Today, 1:00 PM" required>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Available Window (Hours before expiry)</label>
+                  <select name="expiryHours" class="form-select form-select-custom">
+                    <option value="2">Urgent (2 hours remaining)</option>
+                    <option value="4" selected>Standard (4 hours remaining)</option>
+                    <option value="8">Extended (8 hours remaining)</option>
+                    <option value="24">Fresh produce / Dairy (24 hours)</option>
+                  </select>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-custom">Storage Temperature & Conditions</label>
+                  <input type="text" name="storageCondition" class="form-control form-control-custom" placeholder="e.g. Insulated hot box (>65°C) / Chilled refrigerator (4°C)" required>
+                </div>
+
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Food Safety & Hygiene Guarantee</label>
+                  <textarea name="foodSafetyInfo" class="form-control form-control-custom" rows="2" placeholder="HACCP compliant kitchen, untouched buffet surplus..."></textarea>
+                </div>
+                <div class="col-12 col-md-6">
+                  <label class="form-label-custom">Allergen Information</label>
+                  <textarea name="allergens" class="form-control form-control-custom" rows="2" placeholder="Contains dairy, nuts, gluten, etc..."></textarea>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-custom">Pickup Address & Loading Instructions</label>
+                  <input type="text" name="pickupAddress" class="form-control form-control-custom" placeholder="e.g. 450 Grand Avenue, Kitchen Loading Bay 2" required>
+                </div>
+
+                <div class="col-12">
+                  <label class="form-label-custom">Select Sample Photo Preset</label>
+                  <select name="imagePreset" class="form-select form-select-custom">
+                    <option value="https://images.unsplash.com/photo-1546833999-b9f581a1996d?auto=format&fit=crop&w=800&q=80">Hot Basmati Rice & Curry Trays</option>
+                    <option value="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=800&q=80">Fresh Artisan Bakery Loaves & Pastries</option>
+                    <option value="https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=800&q=80">Roasted Herb Chicken & Vegetables</option>
+                    <option value="https://images.unsplash.com/photo-1540420773420-3366772f4999?auto=format&fit=crop&w=800&q=80">Fresh Organic Greens & Farm Produce</option>
+                    <option value="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80">Nutritious Dal, Rice & Flatbread Boxes</option>
+                    <option value="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=800&q=80">Chilled Yogurts & Dairy Parfaits</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="modal-footer bg-light p-3">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-royal px-4 py-2 fw-bold">
+                <i class="bi bi-broadcast me-1"></i> Publish & Broadcast Rescue Listing
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 2: REQUEST FOOD (FOR NGOs)
+         ========================================== -->
+    <div class="modal fade" id="modalRequestFood" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-4">
+            <div>
+              <h5 class="modal-title fw-bold"><i class="bi bi-hand-index-thumb me-2 text-emerald"></i> Request Food Rescue Batch</h5>
+              <small id="requestModalFoodDetails" class="text-white-50">Surplus batch request</small>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="formRequestFood">
+            <input type="hidden" id="requestFoodDonationId" value="">
+            <div class="modal-body p-4">
+              <div class="alert alert-info border-0 py-2 small mb-3">
+                <i class="bi bi-shield-lock-fill me-1"></i> Once submitted, this surplus item will be reserved exclusively for your organization to prevent double-claiming.
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label-custom">Food Selected:</label>
+                <div id="requestModalFoodTitle" class="fw-bold text-navy h6 mb-0">Basmati Pilaf & Curry</div>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label-custom">Target Beneficiary Count (People to be fed)</label>
+                <input type="number" id="requestBeneficiaryCount" class="form-control form-control-custom" min="5" value="50" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label-custom">Distribution Center / Target Community</label>
+                <input type="text" id="requestTargetCommunity" class="form-control form-control-custom" placeholder="e.g. Hope Children Shelter, Central District" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label-custom">Distribution Notes / Request Message for Donor</label>
+                <textarea id="requestNotes" class="form-control form-control-custom" rows="3" placeholder="Explain your distribution plan and timing..."></textarea>
+              </div>
+            </div>
+            <div class="modal-footer bg-light p-3">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-emerald px-4 py-2 fw-bold">
+                <i class="bi bi-send-check me-1"></i> Confirm Food Request
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 3: CONFIRM DISTRIBUTION (FOR NGOs)
+         ========================================== -->
+    <div class="modal fade" id="modalDistribution" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-4">
+            <div>
+              <h5 class="modal-title fw-bold"><i class="bi bi-heart-fill me-2 text-emerald"></i> Confirm Community Distribution</h5>
+              <small id="distributionModalFoodTitle" class="text-white-50">Log meal distribution</small>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <form id="formDistribution">
+            <input type="hidden" id="distributionDonationId" value="">
+            <div class="modal-body p-4">
+              <div class="mb-3">
+                <label class="form-label-custom">Actual Meals Served</label>
+                <input type="number" id="distributionMealsServed" class="form-control form-control-custom" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-custom">Community Beneficiary Group</label>
+                <input type="text" id="distributionCommunity" class="form-control form-control-custom" value="Shelter Families & Children" required>
+              </div>
+              <div class="mb-3">
+                <label class="form-label-custom">Quality & Hygiene Feedback for Donor</label>
+                <textarea id="distributionComments" class="form-control form-control-custom" rows="3" placeholder="Food was fresh, warm, and highly appreciated by everyone..."></textarea>
+              </div>
+            </div>
+            <div class="modal-footer bg-light p-3">
+              <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Cancel</button>
+              <button type="submit" class="btn btn-emerald px-4 py-2 fw-bold">
+                <i class="bi bi-check2-all me-1"></i> Close Rescue Loop (Mark Completed)
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 4: FOOD DETAILS MODAL
+         ========================================== -->
+    <div class="modal fade" id="modalFoodDetails" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-3 px-4">
+            <h5 class="modal-title fw-bold">Surplus Food Specifications</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4" id="detailsModalContent">
+            <!-- Populated dynamically by JavaScript -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 5: 7-STEP TRACKER MODAL
+         ========================================== -->
+    <div class="modal fade" id="modalTracker" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-3 px-4">
+            <h5 class="modal-title fw-bold"><i class="bi bi-geo-alt-fill text-emerald me-2"></i> Live Rescue Audit & Stepper</h5>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4" id="trackerModalBody">
+            <!-- Populated dynamically by JavaScript -->
+          </div>
+          <div class="modal-footer bg-light p-2 px-3">
+            <button type="button" class="btn btn-outline-secondary btn-sm" data-bs-dismiss="modal">Close</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         MODAL 6: BACKEND VIEWER (SPRING BOOT & MYSQL)
+         Shows the Java code & MySQL schema for evaluation
+         ========================================== -->
+    <div class="modal fade" id="modalBackendViewer" tabindex="-1" aria-hidden="true">
+      <div class="modal-dialog modal-xl modal-dialog-centered">
+        <div class="modal-content border-0 shadow-lg" style="border-radius: var(--radius-lg);">
+          <div class="modal-header bg-navy text-white p-3 px-4">
+            <div>
+              <h5 class="modal-title fw-bold"><i class="bi bi-filetype-java text-emerald me-2"></i> Backend Architecture: Java Spring Boot & MySQL</h5>
+              <small class="text-white-50">College Project Technical Evaluation Codebase</small>
+            </div>
+            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body p-4">
+            <ul class="nav nav-tabs mb-3" id="backendTab" role="tablist">
+              <li class="nav-item">
+                <button class="nav-link active fw-bold text-navy" id="mysql-tab" data-bs-toggle="tab" data-bs-target="#tabMysql">
+                  <i class="bi bi-database me-1 text-primary"></i> 1. MySQL Schema (schema.sql)
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold text-navy" id="controller-tab" data-bs-toggle="tab" data-bs-target="#tabController">
+                  <i class="bi bi-cpu me-1 text-success"></i> 2. FoodDonationController.java
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold text-navy" id="entity-tab" data-bs-toggle="tab" data-bs-target="#tabEntity">
+                  <i class="bi bi-boxes me-1 text-warning"></i> 3. FoodDonation.java (Entity)
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold text-navy" id="service-tab" data-bs-toggle="tab" data-bs-target="#tabService">
+                  <i class="bi bi-diagram-3 me-1 text-info"></i> 4. TrackingService.java
+                </button>
+              </li>
+              <li class="nav-item">
+                <button class="nav-link fw-bold text-navy" id="pom-tab" data-bs-toggle="tab" data-bs-target="#tabPom">
+                  <i class="bi bi-file-earmark-code me-1 text-danger"></i> 5. pom.xml & Properties
+                </button>
+              </li>
+            </ul>
+
+            <div class="tab-content">
+              <!-- MySQL Schema -->
+              <div class="tab-pane fade show active" id="tabMysql">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                  <span class="small text-muted">Complete DDL for Users, Donors, NGOs, Volunteers, Food Donations, Requests, Assignments, Tracking, Notifications & Feedback:</span>
+                </div>
+                <div class="code-block-viewer">
+-- SecondServe MySQL Database Schema DDL
+CREATE DATABASE IF NOT EXISTS secondserve_db CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE secondserve_db;
+
+-- 1. Users Table
+CREATE TABLE users (
+    id VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(120) NOT NULL,
+    email VARCHAR(120) NOT NULL UNIQUE,
+    password_hash VARCHAR(255) NOT NULL,
+    role ENUM('DONOR', 'NGO', 'VOLUNTEER', 'ADMIN') NOT NULL,
+    phone VARCHAR(30),
+    organization VARCHAR(150),
+    address VARCHAR(255),
+    verified BOOLEAN DEFAULT FALSE,
+    avatar_url VARCHAR(255),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 2. Donors Profile Table
+CREATE TABLE donors (
+    id VARCHAR(50) PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    donor_type ENUM('HOTEL', 'RESTAURANT', 'BAKERY', 'CATERER', 'CONVENTION_CENTER'),
+    license_number VARCHAR(100),
+    contact_person VARCHAR(100),
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- 3. NGOs Profile Table
+CREATE TABLE ngos (
+    id VARCHAR(50) PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    reg_number VARCHAR(100),
+    certificate_80g VARCHAR(100),
+    beneficiaries_served INT DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- 4. Volunteers Profile Table
+CREATE TABLE volunteers (
+    id VARCHAR(50) PRIMARY KEY,
+    user_id VARCHAR(50) NOT NULL,
+    vehicle_type VARCHAR(100),
+    rating DECIMAL(3,2) DEFAULT 5.00,
+    deliveries_count INT DEFAULT 0,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+);
+
+-- 5. Food Donations Table
+CREATE TABLE food_donations (
+    id VARCHAR(50) PRIMARY KEY,
+    donor_id VARCHAR(50) NOT NULL,
+    food_name VARCHAR(200) NOT NULL,
+    category ENUM('COOKED_MEALS', 'BAKERY', 'FRESH_PRODUCE', 'DAIRY_PACKAGED', 'BEVERAGES') NOT NULL,
+    dietary ENUM('VEG', 'NON_VEG', 'VEGAN') NOT NULL,
+    quantity VARCHAR(100) NOT NULL,
+    servings INT NOT NULL,
+    prep_time VARCHAR(100),
+    available_until DATETIME NOT NULL,
+    storage_condition VARCHAR(255) NOT NULL,
+    food_safety_info TEXT,
+    allergens VARCHAR(255),
+    image_url VARCHAR(255),
+    status ENUM('LISTED', 'REQUESTED', 'APPROVED', 'VOLUNTEER_ASSIGNED', 'PICKED_UP', 'DELIVERED', 'DISTRIBUTION_COMPLETED') DEFAULT 'LISTED',
+    current_request_id VARCHAR(50),
+    assigned_volunteer_id VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (donor_id) REFERENCES users(id)
+);
+
+-- 6. Food Requests Table
+CREATE TABLE food_requests (
+    id VARCHAR(50) PRIMARY KEY,
+    donation_id VARCHAR(50) NOT NULL,
+    ngo_id VARCHAR(50) NOT NULL,
+    beneficiary_count INT NOT NULL,
+    target_community VARCHAR(255) NOT NULL,
+    delivery_eta VARCHAR(100),
+    status ENUM('PENDING', 'APPROVED', 'REJECTED', 'COMPLETED') DEFAULT 'PENDING',
+    notes TEXT,
+    requested_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (donation_id) REFERENCES food_donations(id),
+    FOREIGN KEY (ngo_id) REFERENCES users(id)
+);
+
+-- 7. Volunteer Assignments Table
+CREATE TABLE volunteer_assignments (
+    id VARCHAR(50) PRIMARY KEY,
+    donation_id VARCHAR(50) NOT NULL,
+    volunteer_id VARCHAR(50) NOT NULL,
+    pickup_time DATETIME,
+    delivery_time DATETIME,
+    status ENUM('ASSIGNED', 'EN_ROUTE', 'PICKED_UP', 'DELIVERED') DEFAULT 'ASSIGNED',
+    notes TEXT,
+    FOREIGN KEY (donation_id) REFERENCES food_donations(id),
+    FOREIGN KEY (volunteer_id) REFERENCES users(id)
+);
+
+-- 8. Donation Tracking Audit Logs Table
+CREATE TABLE donation_tracking (
+    id INT AUTO_KEY AUTO_INCREMENT,
+    donation_id VARCHAR(50) NOT NULL,
+    status VARCHAR(50) NOT NULL,
+    actor_id VARCHAR(50) NOT NULL,
+    actor_name VARCHAR(120),
+    actor_role VARCHAR(50),
+    notes TEXT,
+    timestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (donation_id) REFERENCES food_donations(id)
+);
+
+-- 9. Notifications Table
+CREATE TABLE notifications (
+    id VARCHAR(50) PRIMARY KEY,
+    target_role VARCHAR(50),
+    target_user_id VARCHAR(50),
+    title VARCHAR(200) NOT NULL,
+    message TEXT NOT NULL,
+    donation_id VARCHAR(50),
+    is_read BOOLEAN DEFAULT FALSE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 10. Feedback & Reviews Table
+CREATE TABLE feedback (
+    id VARCHAR(50) PRIMARY KEY,
+    donation_id VARCHAR(50) NOT NULL,
+    ngo_name VARCHAR(150),
+    donor_name VARCHAR(150),
+    meals_served INT,
+    rating INT CHECK (rating BETWEEN 1 AND 5),
+    comments TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+                </div>
+              </div>
+
+              <!-- Controller -->
+              <div class="tab-pane fade" id="tabController">
+                <div class="code-block-viewer">
+package com.secondserve.controller;
+
+import com.secondserve.entity.FoodDonation;
+import com.secondserve.service.FoodDonationService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import java.util.List;
+
+@RestController
+@RequestMapping("/api/donations")
+@CrossOrigin(origins = "*")
+public class FoodDonationController {
+
+    @Autowired
+    private FoodDonationService donationService;
+
+    @GetMapping
+    public ResponseEntity&lt;List&lt;FoodDonation&gt;&gt; getAllDonations() {
+        return ResponseEntity.ok(donationService.findAllAvailable());
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity&lt;FoodDonation&gt; getDonationById(@PathVariable String id) {
+        return ResponseEntity.ok(donationService.findById(id));
+    }
+
+    @PostMapping
+    public ResponseEntity&lt;FoodDonation&gt; createDonation(@RequestBody FoodDonation donation) {
+        return ResponseEntity.ok(donationService.createDonation(donation));
+    }
+
+    @PostMapping("/{id}/request")
+    public ResponseEntity&lt;?&gt; requestDonation(@PathVariable String id, @RequestParam String ngoId, @RequestBody RequestDTO requestDto) {
+        // Enforces: No race-conditions, no expired food claims
+        return ResponseEntity.ok(donationService.requestDonation(id, ngoId, requestDto));
+    }
+
+    @PostMapping("/{id}/approve")
+    public ResponseEntity&lt;?&gt; approveRequest(@PathVariable String id, @RequestParam String requestId) {
+        return ResponseEntity.ok(donationService.approveRequest(id, requestId));
+    }
+}
+                </div>
+              </div>
+
+              <!-- Entity -->
+              <div class="tab-pane fade" id="tabEntity">
+                <div class="code-block-viewer">
+package com.secondserve.entity;
+
+import jakarta.persistence.*;
+import lombok.*;
+import java.time.LocalDateTime;
+
+@Entity
+@Table(name = "food_donations")
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class FoodDonation {
+
+    @Id
+    private String id; // e.g. SEC-1001
+
+    @Column(nullable = false)
+    private String foodName;
+
+    @Enumerated(EnumType.STRING)
+    private Category category;
+
+    @Enumerated(EnumType.STRING)
+    private Dietary dietary;
+
+    private String quantity;
+    private Integer servings;
+    private String prepTime;
+    private LocalDateTime availableUntil;
+    private String storageCondition;
+
+    @Column(columnDefinition = "TEXT")
+    private String foodSafetyInfo;
+    private String allergens;
+    private String imageUrl;
+
+    @Enumerated(EnumType.STRING)
+    private DonationStatus status; // LISTED, REQUESTED, APPROVED, VOLUNTEER_ASSIGNED, etc.
+
+    private String donorId;
+    private String donorName;
+    private String pickupAddress;
+    private String currentRequestId;
+    private String assignedVolunteerId;
+}
+                </div>
+              </div>
+
+              <!-- Service -->
+              <div class="tab-pane fade" id="tabService">
+                <div class="code-block-viewer">
+package com.secondserve.service;
+
+import com.secondserve.entity.DonationStatus;
+import com.secondserve.entity.FoodDonation;
+import com.secondserve.repository.FoodDonationRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import java.time.LocalDateTime;
+
+@Service
+@Transactional
+public class TrackingService {
+
+    @Autowired
+    private FoodDonationRepository donationRepo;
+
+    public FoodDonation transitionStatus(String donationId, DonationStatus nextStatus, String actorName, String actorRole, String notes) {
+        FoodDonation donation = donationRepo.findById(donationId)
+                .orElseThrow(() -&gt; new RuntimeException("Donation not found: " + donationId));
+
+        // Strict state validation:
+        // LISTED -&gt; REQUESTED -&gt; APPROVED -&gt; VOLUNTEER_ASSIGNED -&gt; PICKED_UP -&gt; DELIVERED -&gt; DISTRIBUTION_COMPLETED
+        if (nextStatus == DonationStatus.REQUESTED && donation.getStatus() != DonationStatus.LISTED) {
+            throw new IllegalStateException("Food is already requested or claimed.");
+        }
+
+        if (donation.getAvailableUntil().isBefore(LocalDateTime.now())) {
+            throw new IllegalStateException("Food has expired and cannot be requested.");
+        }
+
+        donation.setStatus(nextStatus);
+        return donationRepo.save(donation);
+    }
+}
+                </div>
+              </div>
+
+              <!-- Pom -->
+              <div class="tab-pane fade" id="tabPom">
+                <div class="code-block-viewer">
+&lt;!-- Spring Boot 3.x Maven Dependencies --&gt;
+&lt;dependencies&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;com.mysql&lt;/groupId&gt;
+        &lt;artifactId&gt;mysql-connector-j&lt;/artifactId&gt;
+        &lt;scope&gt;runtime&lt;/scope&gt;
+    &lt;/dependency&gt;
+    &lt;dependency&gt;
+        &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+        &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;optional&gt;true&lt;/optional&gt;
+    &lt;/dependency&gt;
+&lt;/dependencies&gt;
+
+# application.properties
+spring.datasource.url=jdbc:mysql://localhost:3306/secondserve_db?useSSL=false&serverTimezone=UTC
+spring.datasource.username=root
+spring.datasource.password=rootpassword
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+server.port=8080
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer bg-light p-3">
+            <button type="button" class="btn btn-royal" data-bs-dismiss="modal">Done Reviewing</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ==========================================
+         LIVE APP TOAST CONTAINER
+         ========================================== -->
+    <div class="toast-container-custom">
+      <div id="liveAppToast" class="toast toast-custom align-items-center border-0 p-2" role="alert" aria-live="assertive" aria-atomic="true">
+        <div class="d-flex">
+          <div class="toast-body">
+            <div id="toastTitle" class="fw-bold mb-1" style="color: var(--color-emerald);">Action Successful</div>
+            <div id="toastMessage" class="small text-white-50">Operation executed smoothly.</div>
+          </div>
+          <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap 5.3.3 Bundle with Popper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Modular Vanilla JavaScript Application -->
+    <script type="module" src="/js/data.js"></script>
+    <script type="module" src="/js/auth.js"></script>
+    <script type="module" src="/js/tracking.js"></script>
+    <script type="module" src="/js/dashboards.js"></script>
+    <script type="module" src="/js/app.js"></script>
+  </body>
+</html>

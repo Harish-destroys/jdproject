@@ -1,0 +1,6 @@
+{
+  "name": "SecondServe – Surplus Food Rescue System",
+  "description": "A modern, professional food rescue coordination platform connecting restaurants and hotels with NGOs and volunteers to eliminate food waste and feed communities in need.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
